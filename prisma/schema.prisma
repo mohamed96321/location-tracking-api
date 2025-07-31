@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Location {
+  id        Int     @id @default(autoincrement())
+  name      String
+  latitude  Float
+  longitude Float
+  createdAt DateTime @default(now())
+  tags      Tag[]    @relation("LocationTags", references: [id])
+
+  @@map("locations")
+}
+
+model Tag {
+  id        Int        @id @default(autoincrement())
+  label     String     @unique
+  locations Location[] @relation("LocationTags")
+
+  @@map("tags")
+}
