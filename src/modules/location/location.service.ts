@@ -2,13 +2,13 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreateLocationDto } from './dto/create-location.dto';
 import { LocationResponseDto } from './dto/location-response.dto';
-import { generateMapUrl } from '../../common/utils/generate-map-url';
-import { InMemoryCache } from '../../common/cache/in-memory.cache';
+import { generateMapUrl } from '../../common/utils/map-url';
+import { MemoCaching } from '../../common/cache/memo-caching';
 import { LocationGateway } from './location.gateway';
 
 @Injectable()
 export class LocationService {
-  private cache = new InMemoryCache<LocationResponseDto[]>();
+  private cache = new MemoCaching<LocationResponseDto[]>();
 
   constructor(private prisma: PrismaService, private gateway: LocationGateway) {}
 

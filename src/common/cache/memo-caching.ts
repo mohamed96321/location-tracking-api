@@ -1,4 +1,4 @@
-export class InMemoryCache<T> {
+export class MemoCaching<T> {
   private data: T | null = null;
 
   get(): T | null {
