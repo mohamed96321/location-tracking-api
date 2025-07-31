@@ -1,16 +1,12 @@
-import {
-  WebSocketGateway,
-  WebSocketServer,
-} from '@nestjs/websockets';
-import { Server } from 'socket.io';
+import { Injectable } from '@nestjs/common';
+import { EventsHandler } from '../../socket/gateway/events.handler';
 import { LocationResponseDto } from './dto/location-response.dto';
 
-@WebSocketGateway()
+@Injectable()
 export class LocationGateway {
-  @WebSocketServer()
-  server: Server;
+  constructor(private readonly events: EventsHandler) {}
 
   broadcastNewLocation(location: LocationResponseDto) {
-    this.server.emit('newLocation', location);
+    this.events.emitNewLocation(location);
   }
 }

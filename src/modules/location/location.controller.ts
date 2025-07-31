@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Post,
-  Get,
-  Delete,
-  Param,
-  Body,
-  ParseIntPipe,
-} from '@nestjs/common';
+import { Controller, Post, Get, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
 import { LocationService } from './location.service';
 import { CreateLocationDto } from './dto/create-location.dto';
 

@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreateLocationDto } from './dto/create-location.dto';
 import { LocationResponseDto } from './dto/location-response.dto';
@@ -13,10 +10,7 @@ import { LocationGateway } from './location.gateway';
 export class LocationService {
   private cache = new InMemoryCache<LocationResponseDto[]>();
 
-  constructor(
-    private prisma: PrismaService,
-    private gateway: LocationGateway,
-  ) {}
+  constructor(private prisma: PrismaService, private gateway: LocationGateway) {}
 
   async create(dto: CreateLocationDto): Promise<LocationResponseDto> {
     const tags = await Promise.all(
