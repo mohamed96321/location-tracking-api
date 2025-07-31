@@ -17,8 +17,8 @@ A clean, scalable, production-grade **NestJS** backend to manage **locations wit
 ### 1. Clone the Project
 
 ```bash
-git clone https://github.com/your-username/location-service.git
-cd location-service
+git clone https://github.com/mohamed96321/location-tracking-api.git
+cd location-tracking-api
 ```
 
 ### 2. Install Dependencies
@@ -33,7 +33,7 @@ Create a `.env` file at the project root:
 
 ```env
 PORT=3000
-DATABASE_URL=postgresql://user:password@localhost:5432/location_db
+DATABASE_URL="postgresql://postgres:password@localhost:5432/location_tracking"
 ```
 
 ### 4. Run Prisma
