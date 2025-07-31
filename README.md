@@ -110,7 +110,6 @@ Fetch all locations with their tags and Google Maps link.
     "tags": ["office", "urgent"],
     "mapUrl": "https://www.google.com/maps?q=24.7136,46.6753"
   },
-  ...
 ]
 ```
 
